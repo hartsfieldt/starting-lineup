@@ -56,6 +56,26 @@ const promptQuestions = [
   },
 ];
 
+const employee = [
+  { manager },
+  {
+    Engineer,
+  },
+  {
+    intern,
+  },
+];
+
+// const mockData = {
+//     name: "",
+//     employeeid "",
+//     position: "",
+//     email: "",
+//     github: "",
+//     school: "", intern only
+//     office: "", mgr only
+// };
+
 const promptUser = () => {
   return inquirer.prompt(promptQuestions);
 };
