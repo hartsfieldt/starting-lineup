@@ -1,0 +1,16 @@
+:root {
+  --primary-color: #fcf7f8;
+  --secondary-color: #ced3dc;
+  --tertiary-color: #aba9c3;
+  --quaternary-color: #275dad;
+  --quinary-color: #5b616a;
+  font-family: sans-serif;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+}
