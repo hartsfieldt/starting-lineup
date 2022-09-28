@@ -6,7 +6,10 @@ const path = require("path");
 // Generate HTML Page
 const generatePage = require("./src/page-template.js");
 
-// Start = prompt user to answer the questions to build their team profile
+// Start = prompt user to answer the questions to build their team profile (that image thing)
+//inquirer to ask questions - create one for each position
+// ask them which type of employee they are: manager, engineer, intern, break)
+// class super class for employee and create extended classes for managers and engineers
 // Gather managers name, employee id, email address, github user name, then return to menu to add an employee, intern, or complete your team
 // Create an option to select from engineer or intern
 // Engineer requirements: name, id, email, github
