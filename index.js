@@ -2,10 +2,86 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const path = require("path");
+const OUTPUT_DIR = path.resolve(__dirname, "dist");
 
 // Generate HTML Page
-const generatePage = require("./src/page-template.js");
+const generatePage = require("");
+const savePath = path.join(OUTPUT_DIR, "index.html");
+const teamData = [];
 
+function app() {
+  function createTeam() {
+    // inquirer
+    //   .prompt([
+    //     {
+    //       type: "list",
+    //       message: "What type of employee would you like to create?",
+    //       name: "createEmployee",
+    //       choices: ["Manager", "No more employees"],
+    //     },
+    //   ])
+    //   .then(function (choice) {
+    //     switch (choice.createEmployee) {
+    //       case "Manager":
+    //         createManager();
+    //         break;
+    //       // default:
+    //       //   saveHtml();
+    //     }
+    //   });
+    inquirer
+      .prompt([
+        {
+          type: "list",
+          message: "What type of employee would you like to create?",
+          name: "createEmployee",
+          choices: ["Manager", "Engineer", "Intern", "No more employees"],
+        },
+      ])
+      .then(function (choice) {
+        switch (choice.createEmployee) {
+          case "Manager":
+            createManager();
+            break;
+          case "Engineer":
+            createEngineer();
+            break;
+          case "Intern":
+            createIntern();
+            break;
+          default:
+            saveHtml();
+        }
+      });
+  }
+  function createManager() {
+    inquirer.prompt([
+      {
+        type: "input",
+        name: "managerName",
+        message: "Write your name?",
+      },
+      {
+        type: "input",
+        name: "managerId",
+        message: "What is your employee id?",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is your email address?",
+      },
+      {
+        type: "input",
+        name: "officeNumber",
+        message: "What is your office phone number?",
+      },
+    ]);
+  }
+  createTeam();
+}
+
+app();
 // Start = prompt user to answer the questions to build their team profile (that image thing)
 //inquirer to ask questions - create one for each position
 // ask them which type of employee they are: manager, engineer, intern, break)
@@ -18,76 +94,3 @@ const generatePage = require("./src/page-template.js");
 // Function to render HTML Page
 
 // Prompt / Start: Welcome manager and ask for information. All fields are required.
-
-const promptQuestions = [
-  {
-    type: "input",
-    name: "name",
-    message:
-      "Hello and welcome to your team's profile creator. What is your name?",
-    validate: (nameInput) => {
-      if (nameInput) {
-        return true;
-      } else {
-        console.log("Please enter your name!");
-        return false;
-      }
-    },
-  },
-  {
-    type: "input",
-    name: "github",
-    message: "Enter your GitHub Username",
-    validate: (nameInput) => {
-      if (nameInput) {
-        return true;
-      } else {
-        console.log("Please enter your name!");
-        return false;
-      }
-    },
-  },
-  {
-    type: "input",
-    name: "employee-id",
-    message: "What is your employee id?",
-  },
-  {
-    type: "input",
-    name: "office-num",
-    message: "What is your office number?",
-  },
-];
-
-const employee = [
-  { manager },
-  {
-    Engineer,
-  },
-  {
-    intern,
-  },
-];
-
-// const mockData = {
-//     name: "",
-//     employeeid "",
-//     position: "",
-//     email: "",
-//     github: "",
-//     school: "", intern only
-//     office: "", mgr only
-// };
-
-const promptUser = () => {
-  return inquirer.prompt(promptQuestions);
-};
-
-function init() {
-  promptUser(promptQuestions).then((answers) => {
-    return generatePage(answers);
-    console.log(answers);
-  });
-}
-
-init();
