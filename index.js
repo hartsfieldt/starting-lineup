@@ -55,7 +55,7 @@ function app() {
           case "Intern":
             createIntern();
             break;
-          default:
+          case "No more employees":
             saveHtml();
         }
       });
@@ -118,18 +118,18 @@ function app() {
     console.clear();
     console.log(`
 
-▒█▀▄▀█ █░░█ 　 ▀▀█▀▀ █▀▀ █▀▀█ █▀▄▀█ 　 ▒█▀▀█ █▀▀ █▀▀▄ █▀▀ █▀▀█ █▀▀█ ▀▀█▀▀ █▀▀█ █▀▀█
-▒█▒█▒█ █▄▄█ 　 ░▒█░░ █▀▀ █▄▄█ █░▀░█ 　 ▒█░▄▄ █▀▀ █░░█ █▀▀ █▄▄▀ █▄▄█ ░░█░░ █░░█ █▄▄▀
-▒█░░▒█ ▄▄▄█ 　 ░▒█░░ ▀▀▀ ▀░░▀ ▀░░░▀ 　 ▒█▄▄█ ▀▀▀ ▀░░▀ ▀▀▀ ▀░▀▀ ▀░░▀ ░░▀░░ ▀▀▀▀ ▀░▀▀
+  ▒█▀▄▀█ █░░█ 　 ▀▀█▀▀ █▀▀ █▀▀█ █▀▄▀█ 　 ▒█▀▀█ █▀▀ █▀▀▄ █▀▀ █▀▀█ █▀▀█ ▀▀█▀▀ █▀▀█ █▀▀█
+  ▒█▒█▒█ █▄▄█ 　 ░▒█░░ █▀▀ █▄▄█ █░▀░█ 　 ▒█░▄▄ █▀▀ █░░█ █▀▀ █▄▄▀ █▄▄█ ░░█░░ █░░█ █▄▄▀
+  ▒█░░▒█ ▄▄▄█ 　 ░▒█░░ ▀▀▀ ▀░░▀ ▀░░░▀ 　 ▒█▄▄█ ▀▀▀ ▀░░▀ ▀▀▀ ▀░▀▀ ▀░░▀ ░░▀░░ ▀▀▀▀ ▀░▀▀
 
-──────▄▀▄─────▄▀▄
-─────▄█░░▀▀▀▀▀░░█▄
-─▄▄──█░░░░░░░░░░░█──▄▄
-█▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+  ──────▄▀▄─────▄▀▄
+  ─────▄█░░▀▀▀▀▀░░█▄
+  ─▄▄──█░░░░░░░░░░░█──▄▄
+  █▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
 
-== CHOOSE EMPLOYEE TYPE ==================================
-===== > NEW ENGINEER =======================================
-`);
+  == CHOOSE EMPLOYEE TYPE ==================================
+  ===== > NEW ENGINEER =======================================
+  `);
 
     inquirer
       .prompt([
@@ -164,65 +164,66 @@ function app() {
         teamData.push(engineer);
         createTeam();
       });
+  }
 
-    function createIntern() {
-      console.clear();
-      console.log(`
+  function createIntern() {
+    console.clear();
+    console.log(`
 
-    ▒█▀▄▀█ █░░█ 　 ▀▀█▀▀ █▀▀ █▀▀█ █▀▄▀█ 　 ▒█▀▀█ █▀▀ █▀▀▄ █▀▀ █▀▀█ █▀▀█ ▀▀█▀▀ █▀▀█ █▀▀█
-    ▒█▒█▒█ █▄▄█ 　 ░▒█░░ █▀▀ █▄▄█ █░▀░█ 　 ▒█░▄▄ █▀▀ █░░█ █▀▀ █▄▄▀ █▄▄█ ░░█░░ █░░█ █▄▄▀
-    ▒█░░▒█ ▄▄▄█ 　 ░▒█░░ ▀▀▀ ▀░░▀ ▀░░░▀ 　 ▒█▄▄█ ▀▀▀ ▀░░▀ ▀▀▀ ▀░▀▀ ▀░░▀ ░░▀░░ ▀▀▀▀ ▀░▀▀
+  ▒█▀▄▀█ █░░█ 　 ▀▀█▀▀ █▀▀ █▀▀█ █▀▄▀█ 　 ▒█▀▀█ █▀▀ █▀▀▄ █▀▀ █▀▀█ █▀▀█ ▀▀█▀▀ █▀▀█ █▀▀█
+  ▒█▒█▒█ █▄▄█ 　 ░▒█░░ █▀▀ █▄▄█ █░▀░█ 　 ▒█░▄▄ █▀▀ █░░█ █▀▀ █▄▄▀ █▄▄█ ░░█░░ █░░█ █▄▄▀
+  ▒█░░▒█ ▄▄▄█ 　 ░▒█░░ ▀▀▀ ▀░░▀ ▀░░░▀ 　 ▒█▄▄█ ▀▀▀ ▀░░▀ ▀▀▀ ▀░▀▀ ▀░░▀ ░░▀░░ ▀▀▀▀ ▀░▀▀
 
-    ──────▄▀▄─────▄▀▄
-    ─────▄█░░▀▀▀▀▀░░█▄
-    ─▄▄──█░░░░░░░░░░░█──▄▄
-    █▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+  ──────▄▀▄─────▄▀▄
+  ─────▄█░░▀▀▀▀▀░░█▄
+  ─▄▄──█░░░░░░░░░░░█──▄▄
+  █▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
 
-    == CHOOSE EMPLOYEE TYPE ==================================
-    ===== > NEW INTERN =======================================
-    `);
+  == CHOOSE EMPLOYEE TYPE ==================================
+  ===== > NEW INTERN =======================================
+  `);
 
-      inquirer
-        .prompt([
-          {
-            type: "input",
-            name: "name",
-            message: "Enter interns name",
-          },
-          {
-            type: "input",
-            name: "id",
-            message: "Enter interns employee ID",
-          },
-          {
-            type: "input",
-            name: "email",
-            message: "Enter interns email",
-          },
-          {
-            type: "input",
-            name: "school",
-            message: "Enter interns school",
-          },
-        ])
-        .then((answers) => {
-          const intern = new Intern(
-            answers.name,
-            answers.id,
-            answers.email,
-            answers.school
-          );
-          teamData.push(intern);
-          createTeam();
-        });
-    }
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "name",
+          message: "Enter interns name",
+        },
+        {
+          type: "input",
+          name: "id",
+          message: "Enter interns employee ID",
+        },
+        {
+          type: "input",
+          name: "email",
+          message: "Enter interns email",
+        },
+        {
+          type: "input",
+          name: "school",
+          message: "Enter interns school",
+        },
+      ])
+      .then((answers) => {
+        const intern = new Intern(
+          answers.name,
+          answers.id,
+          answers.email,
+          answers.school
+        );
+        teamData.push(intern);
+        createTeam();
+      });
+  }
 
-    createTeam();
+  createTeam();
 
-    function saveHtml() {
-      fs.writeFileSync(savePath, createHtml(teamData), "UTF-8");
-      console.clear();
-      console.log(`
+  function saveHtml() {
+    fs.writeFileSync(savePath, createHtml(teamData), "UTF-8");
+    console.clear();
+    console.log(`
 
     ╔═══╗─────╔═╗╔╗────╔═══╗────────╔╗───╔╗
     ║╔═╗║─────║╔╝║║────║╔═╗║────────║║──╔╝╚╗
@@ -236,7 +237,6 @@ function app() {
     === THE TEAM PROFILE PAGE HAS BEEN SUCCESSFULLY GENERATED ===
     === THANK YOU FOR USING OUR PROFILE GENERATOR ===
       `);
-    }
   }
 }
 
