@@ -2,16 +2,36 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const path = require("path");
-const Manager = require("./lib/Manager");
 const OUTPUT_DIR = path.resolve(__dirname, "dist");
 
-// Generate HTML Page
+// Require Objects
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 const createHtml = require("./utils/createhtml");
+
+// Generate HTML Page
 const savePath = path.join(OUTPUT_DIR, "index.html");
 const teamData = [];
 
 function app() {
   function createTeam() {
+    console.clear();
+    console.log(`
+
+▒█▀▄▀█ █░░█ 　 ▀▀█▀▀ █▀▀ █▀▀█ █▀▄▀█ 　 ▒█▀▀█ █▀▀ █▀▀▄ █▀▀ █▀▀█ █▀▀█ ▀▀█▀▀ █▀▀█ █▀▀█ 
+▒█▒█▒█ █▄▄█ 　 ░▒█░░ █▀▀ █▄▄█ █░▀░█ 　 ▒█░▄▄ █▀▀ █░░█ █▀▀ █▄▄▀ █▄▄█ ░░█░░ █░░█ █▄▄▀ 
+▒█░░▒█ ▄▄▄█ 　 ░▒█░░ ▀▀▀ ▀░░▀ ▀░░░▀ 　 ▒█▄▄█ ▀▀▀ ▀░░▀ ▀▀▀ ▀░▀▀ ▀░░▀ ░░▀░░ ▀▀▀▀ ▀░▀▀
+
+──────▄▀▄─────▄▀▄
+─────▄█░░▀▀▀▀▀░░█▄
+─▄▄──█░░░░░░░░░░░█──▄▄
+█▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+
+
+=== CHOOSE EMPLOYEE TYPE ==================================
+
+    `);
     inquirer
       .prompt([
         {
@@ -37,13 +57,31 @@ function app() {
         }
       });
   }
+
   function createManager() {
+    console.clear();
+    console.log(`
+
+    ▒█▀▄▀█ █░░█ 　 ▀▀█▀▀ █▀▀ █▀▀█ █▀▄▀█ 　 ▒█▀▀█ █▀▀ █▀▀▄ █▀▀ █▀▀█ █▀▀█ ▀▀█▀▀ █▀▀█ █▀▀█ 
+▒█▒█▒█ █▄▄█ 　 ░▒█░░ █▀▀ █▄▄█ █░▀░█ 　 ▒█░▄▄ █▀▀ █░░█ █▀▀ █▄▄▀ █▄▄█ ░░█░░ █░░█ █▄▄▀ 
+▒█░░▒█ ▄▄▄█ 　 ░▒█░░ ▀▀▀ ▀░░▀ ▀░░░▀ 　 ▒█▄▄█ ▀▀▀ ▀░░▀ ▀▀▀ ▀░▀▀ ▀░░▀ ░░▀░░ ▀▀▀▀ ▀░▀▀
+
+──────▄▀▄─────▄▀▄
+─────▄█░░▀▀▀▀▀░░█▄
+─▄▄──█░░░░░░░░░░░█──▄▄
+█▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+
+
+=== CHOOSE EMPLOYEE TYPE ==================================
+===== > NEW MANAGER =======================================
+
+    `);
     inquirer
       .prompt([
         {
           type: "input",
           name: "managerName",
-          message: "Write your name?",
+          message: "What is your name?",
         },
         {
           type: "input",
@@ -72,10 +110,128 @@ function app() {
         createTeam();
       });
   }
-  createTeam();
 
-  function saveHtml() {
-    fs.writeFileSync(savePath, createHtml(teamData), "UTF-8");
+  function createEngineer() {
+    console.clear();
+    console.log(`
+
+    ▒█▀▄▀█ █░░█ 　 ▀▀█▀▀ █▀▀ █▀▀█ █▀▄▀█ 　 ▒█▀▀█ █▀▀ █▀▀▄ █▀▀ █▀▀█ █▀▀█ ▀▀█▀▀ █▀▀█ █▀▀█ 
+▒█▒█▒█ █▄▄█ 　 ░▒█░░ █▀▀ █▄▄█ █░▀░█ 　 ▒█░▄▄ █▀▀ █░░█ █▀▀ █▄▄▀ █▄▄█ ░░█░░ █░░█ █▄▄▀ 
+▒█░░▒█ ▄▄▄█ 　 ░▒█░░ ▀▀▀ ▀░░▀ ▀░░░▀ 　 ▒█▄▄█ ▀▀▀ ▀░░▀ ▀▀▀ ▀░▀▀ ▀░░▀ ░░▀░░ ▀▀▀▀ ▀░▀▀
+
+──────▄▀▄─────▄▀▄
+─────▄█░░▀▀▀▀▀░░█▄
+─▄▄──█░░░░░░░░░░░█──▄▄
+█▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+
+== CHOOSE EMPLOYEE TYPE ==================================
+===== > NEW ENGINEER =======================================
+`);
+
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "name",
+          message: "Enter engineers name",
+        },
+        {
+          type: "input",
+          name: "id",
+          message: "Enter engineers employee ID",
+        },
+        {
+          type: "input",
+          name: "email",
+          message: "Enter engineers email",
+        },
+        {
+          type: "input",
+          name: "github",
+          message: "Enter engineers github",
+        },
+      ])
+      .then((answers) => {
+        const engineer = new Engineer(
+          answers.name,
+          answers.id,
+          answers.email,
+          answers.github
+        );
+        teamData.push(engineer);
+        createTeam();
+      });
+
+    function createIntern() {
+      console.clear();
+      console.log(`
+
+        ▒█▀▄▀█ █░░█ 　 ▀▀█▀▀ █▀▀ █▀▀█ █▀▄▀█ 　 ▒█▀▀█ █▀▀ █▀▀▄ █▀▀ █▀▀█ █▀▀█ ▀▀█▀▀ █▀▀█ █▀▀█ 
+    ▒█▒█▒█ █▄▄█ 　 ░▒█░░ █▀▀ █▄▄█ █░▀░█ 　 ▒█░▄▄ █▀▀ █░░█ █▀▀ █▄▄▀ █▄▄█ ░░█░░ █░░█ █▄▄▀ 
+    ▒█░░▒█ ▄▄▄█ 　 ░▒█░░ ▀▀▀ ▀░░▀ ▀░░░▀ 　 ▒█▄▄█ ▀▀▀ ▀░░▀ ▀▀▀ ▀░▀▀ ▀░░▀ ░░▀░░ ▀▀▀▀ ▀░▀▀
+
+    ──────▄▀▄─────▄▀▄
+    ─────▄█░░▀▀▀▀▀░░█▄
+    ─▄▄──█░░░░░░░░░░░█──▄▄
+    █▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+
+    == CHOOSE EMPLOYEE TYPE ==================================
+    ===== > NEW INTERN =======================================
+    `);
+      inquirer
+        .prompt([
+          {
+            type: "input",
+            name: "name",
+            message: "Enter interns name",
+          },
+          {
+            type: "input",
+            name: "id",
+            message: "Enter interns employee ID",
+          },
+          {
+            type: "input",
+            name: "email",
+            message: "Enter interns email",
+          },
+          {
+            type: "input",
+            name: "github",
+            message: "Enter interns school",
+          },
+        ])
+        .then((answers) => {
+          const intern = new Intern(
+            answers.name,
+            answers.id,
+            answers.email,
+            answers.github
+          );
+          teamData.push(intern);
+          createTeam();
+        });
+    }
+
+    createTeam();
+
+    function saveHtml() {
+      fs.writeFileSync(savePath, createHtml(teamData), "UTF-8");
+      console.clear();
+      console.log(`
+
+    ╔═══╗─────╔═╗╔╗────╔═══╗────────╔╗───╔╗
+    ║╔═╗║─────║╔╝║║────║╔═╗║────────║║──╔╝╚╗
+    ║╚═╝╠═╦══╦╝╚╦╣║╔══╗║║─╚╬══╦╗╔╦══╣║╔═╩╗╔╬══╗
+    ║╔══╣╔╣╔╗╠╗╔╬╣║║║═╣║║─╔╣╔╗║╚╝║╔╗║║║║═╣║║║═╣
+    ║║──║║║╚╝║║║║║╚╣║═╣║╚═╝║╚╝║║║║╚╝║╚╣║═╣╚╣║═╣
+    ╚╝──╚╝╚══╝╚╝╚╩═╩══╝╚═══╩══╩╩╩╣╔═╩═╩══╩═╩══╝
+    ─────────────────────────────║║
+    ─────────────────────────────╚╝
+
+    === THE TEAM PROFILE PAGE HAS BEEN SUCCESSFULLY GENERATED ===
+      `);
+    }
   }
 }
 
