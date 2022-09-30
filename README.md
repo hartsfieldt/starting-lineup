@@ -23,10 +23,17 @@ The user must be presented with a CLI application that:
 - Returns to the employee menu and has the option to be finished with building the team.
 
 ## Screencastify
+Video Demo for application use
+
 https://drive.google.com/file/d/1_X1zf-aqtzNrme7-pPsfLj7CUJm20lFS/view?usp=sharing
+
+Video Demo for testing (Used Youtube as Google was not working for me)
+https://youtu.be/jkBXOBQVwjs
 ## Website
 
 https://hartsfieldt.github.io/starting-lineup/
+
+file:///Users/teresahartsfield/repos/challenges/starting-lineup/dist/index.html
 
 ## Git Hub
 
