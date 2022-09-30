@@ -16,7 +16,7 @@ const savePath = path.join(OUTPUT_DIR, "index.html");
 // Storing Team Array
 const teamData = [];
 
-const logo = `\x1b[33m
+const logo = `\x1b[95m
 ▒█▀▄▀█ █░░█ 　 ▀▀█▀▀ █▀▀ █▀▀█ █▀▄▀█ 　 ▒█▀▀█ █▀▀ █▀▀▄ █▀▀ █▀▀█ █▀▀█ ▀▀█▀▀ █▀▀█ █▀▀█
 ▒█▒█▒█ █▄▄█ 　 ░▒█░░ █▀▀ █▄▄█ █░▀░█ 　 ▒█░▄▄ █▀▀ █░░█ █▀▀ █▄▄▀ █▄▄█ ░░█░░ █░░█ █▄▄▀
 ▒█░░▒█ ▄▄▄█ 　 ░▒█░░ ▀▀▀ ▀░░▀ ▀░░░▀ 　 ▒█▄▄█ ▀▀▀ ▀░░▀ ▀▀▀ ▀░▀▀ ▀░░▀ ░░▀░░ ▀▀▀▀ ▀░▀▀
@@ -206,7 +206,7 @@ ${logo}
   function saveHtml() {
     fs.writeFileSync(savePath, createHtml(teamData), "UTF-8");
     console.clear();
-    console.log(`
+    console.log(`\x1b[96m
 
     ╔═══╗─────╔═╗╔╗────╔═══╗────────╔╗───╔╗
     ║╔═╗║─────║╔╝║║────║╔═╗║────────║║──╔╝╚╗
@@ -219,7 +219,7 @@ ${logo}
 
     === THE TEAM PROFILE PAGE HAS BEEN SUCCESSFULLY GENERATED ===
     === THANK YOU FOR USING OUR PROFILE GENERATOR ===
-      `);
+    \x1b[0m`);
   }
 }
 
