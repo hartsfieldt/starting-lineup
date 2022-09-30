@@ -4,7 +4,7 @@
 
 ## Purpose
 
-To generated a website that displays a users team's basic information.
+To generated an HTML page that displays a managers team information.
 
 ## Requirements
 
@@ -13,6 +13,8 @@ The user must be presented with a CLI application that:
 ## Screencastify
 
 ## Website
+
+https://hartsfieldt.github.io/starting-lineup/
 
 ## Git Hub
 
