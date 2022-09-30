@@ -2,6 +2,10 @@
 
 <img src="./assets/img/startinglineup.png" alt="screenshot of Team Profile Generator" height="300px"/>
 
+<img src="./assets/img/start.png" alt="Start of Team Profile Generator" height="300px"/>
+
+<img src="./assets/img/end.png" alt="End of Team Profile Generator" height="300px"/>
+
 ## Purpose
 
 To generated an HTML page that displays a managers team information.
